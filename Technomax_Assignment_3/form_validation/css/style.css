@@ -1,0 +1,30 @@
+body {
+  font: 100% "Comic Sans MS", sans-serif;
+  color: #333; }
+
+.form {
+  width: 60%;
+  margin-left: 20%; }
+  .form .form__label {
+    display: block;
+    margin-bottom: 10px; }
+  .form .form__input {
+    display: block;
+    width: 70%;
+    margin-bottom: 10px; }
+  .form .form__input-gender {
+    width: 3%;
+    display: inline; }
+  .form .form__iframe {
+    width: 70%; }
+  .form a {
+    width: 70%;
+    display: block; }
+  .form .form__button {
+    display: inline; }
+  .form .form__button-submit {
+    background-color: #9999ff;
+    border-radius: 3px;
+    border: 1px solid white; }
+
+/*# sourceMappingURL=style.css.map */

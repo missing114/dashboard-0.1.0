@@ -1,0 +1,38 @@
+body {
+    font: 100% "Comic Sans MS", sans-serif;
+    color: #333;
+}
+
+.form {
+	width: 60%;
+	margin-left: 20%;
+	.form__label {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.form__input {
+		display: block;
+		width: 70%;
+		margin-bottom: 10px;
+	}
+	.form__input-gender {
+		width: 3%;
+		display: inline;
+	}
+	.form__iframe{
+		width: 70%;
+	}
+	a {
+		width: 70%;
+		display: block;
+	}
+	.form__button {
+		display: inline;
+	}
+
+	.form__button-submit {
+		background-color: lighten(blue, 30%);
+		border-radius: 3px;
+		border: 1px solid white;
+	}
+}
