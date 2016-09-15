@@ -1,15 +1,16 @@
-<div ng-controller="WorkController">
-        <div class=" dashboard__header">
-            <img src="./assets/images/src/app/logo.png">
-            <button class="pull-right btn btn-default">Log out</button>
-        </div>
-        <div class="navi col-xs-2 dashboard__navi">
-            <ul class="nav nav-pills nav-stacked">
-                <li role="presentation"><a href="#/root/overview">Overview</a></li>
-                <li role="presentation"><a href="#/root/work">Work</a></li>
-                <li role="presentation"><a href="#/root/producer">Producer</a></li>
-                <li role="presentation"><a href="#/root/contact">Contact</a></li>
-            </ul>
-        </div>
-        <div ui-view></div>
+<div ng-controller="RootController">
+    <div class="dashboard__header">
+        <img src="./assets/images/src/app/logo.png">
+        <span>{{username}}</span>
+        <button ng-click="logout()" class="pull-right btn btn-default">Log out</button>
+    </div>
+    <div class="navi col-xs-2 dashboard__navi">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="#/root/overview">Overview</a></li>
+            <li role="presentation"><a href="#/root/work">Work</a></li>
+            <li role="presentation"><a href="#/root/producer">Producer</a></li>
+            <li role="presentation"><a href="#/root/contact">Contact</a></li>
+        </ul>
+    </div>
+    <div ui-view></div>
 </div>

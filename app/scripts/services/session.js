@@ -3,21 +3,18 @@
 // Description: Define the sessionService that has 3 functionalities: 
 // get, set, and destroy for users' data in the session storage
 
-/*
- * In this service the user data is defined for the current session. Within
- * angular current session is until the page is refreshed. When the page is
- * refreshed the user is reinitialized through $window.sessionStorage at the
- * login.js file.
- */
-angular.module('dashboard').service('SessionService', function($rootScope) {
+angular.module('dashboard').service('SessionService', function($window) {
+
 	this.set = function(user) {
-		this.user = user;
+        $window.sessionStorage.username = user;
 	};
 	this.get = function() {
-		return this.user
+		return $window.sessionStorage.username
 	};
 	this.destroy = function() {
-		this.user = null;
+		$window.sessionStorage.clear();
 	};
-	return this;
+	this.isloged = function() {
+		return Boolean($window.sessionStorage.username != undefined);
+	}
 });

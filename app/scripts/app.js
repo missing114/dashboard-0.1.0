@@ -12,35 +12,48 @@
 var app = angular.module('dashboard', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-   $stateProvider
-   .state('login', {
-   		url:'/login',
-   		templateUrl: "templates/login.html"
-   	})
-   .state('root', {
-   		url:'/root',
-   		templateUrl: "templates/root.html"
-   	})
-   	.state('root.overview', {
-   		url:'/overview',
-   		templateUrl: "templates/overview.html"
-   	})
-   	.state('root.producer', {
-   		url:'/producer',
-   		templateUrl: "templates/producer.html"
-   	})
-   	.state('root.work', {
-   		url:'/work',
-   		templateUrl: "templates/work.html"
-   	})
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            templateUrl: "templates/login.html"
+        })
+        .state('root', {
+            url: '/root',
+            templateUrl: "templates/root.html"
+        })
+        .state('root.overview', {
+            url: '/overview',
+            templateUrl: "templates/overview.html"
+        })
+        .state('root.producer', {
+            url: '/producer',
+            templateUrl: "templates/producer.html"
+        })
+        .state('root.work', {
+            url: '/work',
+            templateUrl: "templates/work.html"
+        })
+        .state('root.contact', {
+            url: '/contact',
+            templateUrl: "templates/contact.html"
+        });
 
-   	.state('root.contact', {
-   		url:'/contact',
-   		templateUrl: "templates/contact.html"
-   	});
 
-   	
-	$urlRouterProvider
-	.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
+
 });
 
+
+app.run(function($rootScope, $state, SessionService) {
+
+    $rootScope.$on('$stateChangeStart',
+        function(event, toState) {
+            if (!SessionService.isloged() && toState.name != 'login') {
+               event.preventDefault();
+               $state.go('login');
+            } else if (SessionService.isloged() && toState.name == 'login') {
+               event.preventDefault();
+               $state.go('root.work');
+            }
+        });
+});
