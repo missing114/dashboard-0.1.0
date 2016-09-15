@@ -1,7 +1,8 @@
-<div ng-controller="WorkController">
+<div ng-controller="RootController">
         <div class="page__header dashboard--works_header">
             <img src="./assets/images/src/app/logo.png">
-            <button class="pull-right btn btn-default">Log out</button>
+            <span> {{username}} </span>
+            <button class="pull-right btn btn-default" ng-click="logout()">Log out</button>
         </div>
         <div class="navi col-xs-2 dashboard--works_navi">
             <ul class="nav nav-pills nav-stacked">

@@ -29,7 +29,7 @@ function LoginService($http, $window) {
 
   /** Make request to log out */
   s.logout = function () {
-    Session.destroy();
+    return "success";
     // $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
   };
 }

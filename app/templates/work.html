@@ -1,22 +1,24 @@
-<div class="navi col-xs-10 dashboard--works_filter">
-    <button class="btn btn-primary">Select Design</button>
-    <button class="btn btn-danger">Add Item</button>
-    <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
-    <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
-    <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
-    <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
-</div>
-<div class="navi col-xs-10 dashboard--works_content">
-    <div class="col-xs-4" ng-repeat="work in works ">
-        <img src="{{work.image}}">
-        <br>
-        <span>{{work.title}} </span>
-        <br>
-        <a herf=""><span>{{work.author}} </span></a>
-        <br>
-        <span>{{work.like}} </span>
-        <br>
-        <span>{{work.comment}} </span>
-        <br>
+<div ng-controller="WorkController">
+    <div class="navi col-xs-10 dashboard--works_filter">
+        <button class="btn btn-primary">Select Design</button>
+        <button class="btn btn-danger">Add Item</button>
+        <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
+        <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
+        <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
+        <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
     </div>
+    <div class="navi col-xs-10 dashboard--works_content">
+        <div class="col-xs-4" ng-repeat="work in works ">
+            <img src="{{work.image}}">
+            <br>
+            <span>{{work.title}} </span>
+            <br>
+            <a herf=""><span>{{work.author}} </span></a>
+            <br>
+            <span>{{work.like}} </span>
+            <br>
+            <span>{{work.comment}} </span>
+            <br>
+        </div>
+    </div>    
 </div>

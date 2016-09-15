@@ -4,7 +4,8 @@ var router  = express.Router();
 router.post('/', function(req, res, next) {
     console.log(req.body);
     if ((req.body.userName === 'minh' && req.body.password === 'faith') || 
-        (req.body.userName === 'darth' && req.body.password === 'jedi')) {
+        (req.body.userName === 'darth' && req.body.password === 'jedi') ||
+        (req.body.userName === 'd' && req.body.password === 'd')) {
         res.send({
             authentication: 'success'
         });
