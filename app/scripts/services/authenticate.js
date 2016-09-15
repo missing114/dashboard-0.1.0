@@ -1,77 +1,41 @@
-'use strict';
+// 'use strict';
 // AUTHENTICATE SERVICE
 // Description: Define the authenticateService that has 3 functionalities: login, logout, and islogged 
 
-angular.module('loginApp')
-.factory('Auth', [ '$http', '$rootScope', '$window', 'Session', 'AUTH_EVENTS', 
-function($http, $rootScope, $window, Session, AUTH_EVENTS) {
-  var authService = {};
-  
-  
-  //the login function
-  authService.login = function(user, success, error) {
-    $http.post('misc/users.json').success(function(data) {
-    
-    //this is my dummy technique, normally here the 
-    //user is returned with his data from the db
-    var users = data.users;
-    if(users[user.username]){
-      var loginData = users[user.username];
-      //insert your custom login function here 
-      if(user.username == loginData.username && user.password == loginData.username){
-        //set the browser session, to avoid relogin on refresh
-        $window.sessionStorage["userInfo"] = JSON.stringify(loginData);
-        
-        //delete password not to be seen clientside 
-        delete loginData.password;
-        
-        //update current user into the Session service or $rootScope.currentUser
-        //whatever you prefer
-        Session.create(loginData);
-        //or
-        $rootScope.currentUser = loginData;
-        
-        //fire event of successful login
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-        //run success function
-        success(loginData);
-      } else{
-        //OR ELSE
-        //unsuccessful login, fire login failed event for 
-        //the according functions to run
-        $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-        error();
+(function() {
+"use strict";
+
+angular.module('mainApp').service('LoginService', LoginService);
+console.log("mainApp LoginService is initialized");
+LoginService.$inject = ['$http', '$window', 'ApiPath'];
+function LoginService($http, $window, ApiPath) {
+  var service = this;
+  var islogged = false;
+  /** Login and create session when succeeded */
+  service.login = function(username, password) {
+    var params = {
+      'username': username,
+      'password': password,
+    };
+
+    $http.post(ApiPath + '/', params).then(function(response) {
+      if (response.data.authentication=='success'){
+        service.islogged = true;
+        return 'success'
       }
-    } 
+      else if (response.data.authentication=='fail') {
+        service.islogged = false;
+        return 'fail'
+      };
     });
-    
   };
 
-  //check if the user is authenticated
-  authService.isAuthenticated = function() {
-    return !!Session.user;
-  };
-  
-  //check if the user is authorized to access the next route
-  //this function can be also used on element level
-  //e.g. <p ng-if="isAuthorized(authorizedRoles)">show this only to admins</p>
-  authService.isAuthorized = function(authorizedRoles) {
-    if (!angular.isArray(authorizedRoles)) {
-        authorizedRoles = [authorizedRoles];
-      }
-      return (authService.isAuthenticated() &&
-        authorizedRoles.indexOf(Session.userRole) !== -1);
-  };
-  
-  //log out the user and broadcast the logoutSuccess event
-  authService.logout = function(){
+  /** Make request to log out */
+  service.logout = function () {
     Session.destroy();
-    $window.sessionStorage.removeItem("userInfo");
-    $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
-  }
+    // $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+    // return $http.post(ApiPath + '/', params);
+  };
+}
 
-  authService.islogged = function(){
-  }
-  
-  return authService;
-} ]);
+})();

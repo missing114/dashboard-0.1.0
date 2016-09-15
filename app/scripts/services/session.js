@@ -9,17 +9,15 @@
  * refreshed the user is reinitialized through $window.sessionStorage at the
  * login.js file.
  */
-angular.module('loginApp').service('Session', function($rootScope, USER_ROLES) {
-
-	this.create = function(user) {
+angular.module('mainApp').service('SessionService', function($rootScope) {
+	this.set = function(user) {
 		this.user = user;
-		this.userRole = user.userRole;
 	};
-	this.get = function() {};
-	this.set = function() {};
+	this.get = function() {
+		return this.user
+	};
 	this.destroy = function() {
 		this.user = null;
-		this.userRole = null;
 	};
 	return this;
 });
