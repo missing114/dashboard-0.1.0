@@ -1,77 +1,65 @@
-// 'use strict';
+'use strict';
 // LOGIN CONTROLLER
 // Description: Define the following functionalities:
 // Making service calls to login a user
 
-(function() {
-"use strict";
+// (function() {
+// "use strict";
 
-angular.module('admin')
-.controller('LoginController', LoginController);
+// angular.module('dashboard')
+// .controller('LoginController', LoginController);
+// console.log("dashboard LoginController is initialized");
+// /**
+//  * Handles login form credentials and redirects user to page.
+//  */
+// LoginController.$inject = ['$state', 'LoginService'];
 
-/**
- * Handles login form credentials and redirects user to page.
- */
-LoginController.$inject = ['$state', 'LoginService', 'CurrentUserService'];
-function LoginController($state, LoginService, CurrentUserService) {
-  var $ctrl = this;
-  $ctrl.username = '';
-  $ctrl.password = '';
-  $ctrl.error = '';
+// function LoginController($state, LoginService) {
+//   var $ctrl = this;
+//   $ctrl.username = '';
+//   $ctrl.password = '';
+//   $ctrl.error = '';
 
-  /**
-   * Handles when user clicks the login button.
-   */
-  $ctrl.login = function() {
-    LoginService.getAccessToken($ctrl.username, $ctrl.password).then(function(accessToken) {
-      CurrentUserService.saveToken($ctrl.username, accessToken);
+//   *
+//    * Handles when user clicks the login button.
 
-      // If user went directly to login page, redirect to admin home
-      if(!$state.params || !$state.params.toState) {
-        $state.go('admin.auth');
-      }
-      else {
-        $state.go($state.params.toState.name, $state.params.toParams);
-      }
-    }, function(response) {
-      // Login failed
-      $ctrl.error = "Login Failed: Username and/or Password did not match.";
+//   $ctrl.login = function() {
+//     LoginService.login($ctrl.Usernameame, $ctrl.password).then(function(response) {
+//       // Login successful
+//       $state.go('root.work');
+//       // SessionService.set($ctrl.username);
+//     }, function(response) {
+//       // Login failed
+//       $ctrl.error = "Login Failed: Username and/or Password did not match.";
+//     });
+//   };
+
+//   $ctrl.valid = function() {
+//     return ($ctrl.username !== '' && $ctrl.password !== '');
+//   };
+
+// }
+
+// })();
+
+angular.module('dashboard')
+    .controller('LoginController', function($scope, $http, $state) {
+        $scope.username = '';
+        $scope.password = '';
+        $scope.error = '';
+        $scope.valid = function() {
+            return !($scope.username != '' && $scope.password != '');
+        };
+
+        $scope.submit = function() {
+            $http({
+                method: 'POST',
+                url: '/api/login',
+                data: {'userName': $scope.username,'password': $scope.password }
+            }).then(function(response) {
+                $state.go('root.work');
+            }, function(response) {
+                $scope.error =  "Username and password combination invalid, please try again!"
+            });
+        }
     });
-  };
-
-
-  $ctrl.valid = function() {
-    return ($ctrl.username !== '' && $ctrl.password !== '');
-  };
-
-}
-
-
-})();
-
-(function () {
-"use strict";
-
-angular.module('admin')
-.controller('AdminAuthController', AdminAuthController);
-
-
-AdminAuthController.$inject = ['$location', 'LoginService', 'CurrentUserService'];
-function AdminAuthController($location, LoginService, CurrentUserService) {
-  var $ctrl = this;
-
-  $ctrl.logout = function () {
-    // Make sure user is logged in
-    if (!CurrentUserService.isAuthenticated()) {
-      return;
-    }
-
-    LoginService.logout(CurrentUserService.getAccessToken()).then(function () {
-      CurrentUserService.saveToken('', '');
-      $location.path("/");
-    });
-  };
-}
-
-
-})();
