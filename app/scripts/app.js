@@ -28,11 +28,15 @@ function routeConfig ($stateProvider) {
       // absract: true,
       templateUrl: 'templates/login.html'
     })
-    .state('mainApp.overview', {
+    .state('mainApp.root', {
+      url: '/root',
+      templateUrl: 'templates/root.html'
+    })
+    .state('mainApp.root.overview', {
       url: '/overview',
       templateUrl: 'templates/overview.html'
     })
-    .state('mainApp.work', {
+    .state('mainApp.root.work', {
       url: '/work',
       templateUrl: 'templates/work.html',
       controller: 'WorkController',
@@ -56,30 +60,3 @@ function routeConfig ($stateProvider) {
     // });
 }
 })();
-
-// var loginApp = angular.module('loginApp', ['ui.router', 'ui.bootstrap'])
-// /*Constants regarding user login defined here*/
-// .constant('USER_ROLES', {
-//     all : '*',
-//     admin : 'admin',
-//     editor : 'editor',
-//     guest : 'guest'
-// }).constant('AUTH_EVENTS', {
-//     loginSuccess : 'auth-login-success',
-//     loginFailed : 'auth-login-failed',
-//     logoutSuccess : 'auth-logout-success',
-//     sessionTimeout : 'auth-session-timeout',
-//     notAuthenticated : 'auth-not-authenticated',
-//     notAuthorized : 'auth-not-authorized'
-// })
-
-/* Adding the auth interceptor here, to check every $http request*/
-// .config(function ($httpProvider) {
-//   $httpProvider.interceptors.push([
-//     '$injector',
-//     function ($injector) {
-//       return $injector.get('AuthInterceptor');
-//     }
-//   ]);
-// })
-

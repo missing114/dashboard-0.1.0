@@ -1,28 +1,37 @@
-.login {
-    margin: 0 auto;
-    padding: 20px;
-}
-.login div:first-of-type {
-    width: 300px;
-    margin: 0 auto;
+.dash__login {
+    background-image: url("../images/src/app/background.jpg");
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
 }
 
-.login-error {
-  color: #ff0000;
-  font-size: 1.2em;
+.dash__login hr {
+    width: 60%;
+    text-align: center;
 }
 
-.error {
-  color: #ff0000;
+.dash__login div{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-.has-error .control-label {
-  color: #ff0000;
+.dash__login div div{
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
 }
-.has-error .form-control {
-  border-color: #ff0000;
+
+.dash__login div div button{
+    width: 100%;
+    display: block;
 }
-.has-error .input-group-addon {
-  border-color: #ff0000;
-  color: #ff0000;
+
+.login-error{
+    color: red;
 }

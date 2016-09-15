@@ -7,34 +7,30 @@
 
 angular.module('mainApp').service('LoginService', LoginService);
 console.log("mainApp LoginService is initialized");
-LoginService.$inject = ['$http', '$window', 'ApiPath'];
-function LoginService($http, $window, ApiPath) {
-  var service = this;
+LoginService.$inject = ['$http', '$window'];
+function LoginService($http, $window) {
+  var s = this;
   var islogged = false;
-  /** Login and create session when succeeded */
-  service.login = function(username, password) {
+  /** Login and return a promise of the post */
+  s.login = function(username, password) {
     var params = {
-      'username': username,
+      'userName': username,
       'password': password,
     };
 
-    $http.post(ApiPath + '/', params).then(function(response) {
-      if (response.data.authentication=='success'){
-        service.islogged = true;
-        return 'success'
-      }
-      else if (response.data.authentication=='fail') {
-        service.islogged = false;
-        return 'fail'
-      };
-    });
+    return $http.post('/api/login', params).then(function(response) {
+        s.islogged = true;
+        return 'success';
+      }, function(response){      
+        s.islogged = false;
+        return 'fail';
+      });
   };
 
   /** Make request to log out */
-  service.logout = function () {
+  s.logout = function () {
     Session.destroy();
     // $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
-    // return $http.post(ApiPath + '/', params);
   };
 }
 

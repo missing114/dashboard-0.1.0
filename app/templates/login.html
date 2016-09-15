@@ -1,20 +1,19 @@
-<link rel="stylesheet" href="assets/styles/login.css">
-<div class="login">
+<div class="dash__login" ng-controller="LoginController">
   <h1 class="text-center">Login</h1>
   <div>
     <div class="form-group">
       <label>Username</label>
-      <input class="form-control" type="text" ng-model="loginCtrl.username" placeholder="Username" autofocus>
+      <input class="form-control" type="text" ng-model="username" placeholder="Username" autofocus>
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input class="form-control" type="password" ng-model="loginCtrl.password" placeholder="Password">
+      <input class="form-control" type="password" ng-model="password" placeholder="Password">
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" ng-click="loginCtrl.login()" ng-disabled="!loginCtrl.valid()">Login</button>
+      <button class="btn btn-success" ng-click="login()" ng-disabled="!valid()">Login</button>
     </div>
   </div>
-  <div ng-if="loginCtrl.error" class="login-error text-center">
-    {{loginCtrl.error}}
+  <div ng-if="error" class="login-error text-center">
+    {{error}}
   </div>
 </div>
