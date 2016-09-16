@@ -10,7 +10,6 @@ console.log("mainApp LoginService is initialized");
 LoginService.$inject = ['$http', '$window'];
 function LoginService($http, $window) {
   var s = this;
-  var logged = Boolean($window.sessionStorage.SessionMessage) || false;
 
   /** Login and return a promise of the post */
   s.login = function(username, password) {
@@ -20,7 +19,6 @@ function LoginService($http, $window) {
     };
 
     return $http.post('/api/login', params).then(function(response) {
-        s.logged = true;
         return 'success';
       }, function(response){      
         return 'fail';
@@ -28,14 +26,14 @@ function LoginService($http, $window) {
   };
 
   /** Make request to log out */
-  s.logout = function () {
-    s.logged = false;
-    return "success";
+  s.logout = function (sessionService) {
+    sessionService.destroy();
+    return;
     // $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
   };
 
   s.islogged = function() {
-    return s.logged;
+    return Boolean($window.sessionStorage.SessionMessage!='null') || false;
   }
 
   // return this;

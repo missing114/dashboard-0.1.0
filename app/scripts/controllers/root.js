@@ -12,12 +12,12 @@ console.log("Root controller initialized");
 RootController.$inject = ['$scope', '$state', 'LoginService', 'SessionService'];
 function RootController($scope, $state, LoginService, SessionService) {
     $scope.username = SessionService.get();
-    console.log(SessionService.get());
+    // console.log(SessionService.get());
 
-    $scope.logout = function() {
-    	if (LoginService.logout()=='success') {
+    $scope.logout = function(){
+    	$.when(LoginService.logout(SessionService)).then(function() {
+    		// console.log(LoginService.islogged(), $window.sessionStorage.SessionMessage);
     		$state.go('login');
-        	SessionService.destroy();	
-    	}
+    	});	
     };
 };

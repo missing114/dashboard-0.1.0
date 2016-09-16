@@ -11,7 +11,7 @@
 (function() {
 'use strict';
 
-angular.module('mainApp', ['ui.router']).config(
+var app = angular.module('mainApp', ['ui.router']).config(
 function routeConfig ($stateProvider, $urlRouterProvider) {
   // Routes
     $stateProvider
@@ -38,16 +38,10 @@ function routeConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/producer.html',
     });
 
-    $urlRouterProvider.otherwise(function($state, $window){
-      console.log($window);
-      if ($window.sessionStorage && $window.sessionStorage.SessionMessage) {
-        return '/root.work';
-      } else {
-        return '/login';
-      }
-    });
-})
-.run(function($rootScope, $state, LoginService) {
+    $urlRouterProvider.otherwise('/login');
+});
+
+app.run(function($rootScope, $state, LoginService) {
    $rootScope.$on('$stateChangeStart',
        function(event, toState) {
            console.log(LoginService.islogged(), toState.name);
