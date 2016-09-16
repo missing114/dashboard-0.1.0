@@ -3,26 +3,26 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Edit item</h4>
                 </div>
                 <div class="modal-body">
                     <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Title">
+                        <input type="text" class="form-control" placeholder="Title" ng-model="edit_title">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Author">
+                        <input type="text" class="form-control" placeholder="Author" ng-model="edit_author">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Like">
+                        <input type="text" class="form-control" placeholder="Like" ng-model="edit_like">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Comment">
+                        <input type="text" class="form-control" placeholder="Comment" ng-model="edit_comment">
                     </div>
                 </div>
                 </form>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success pull-left">Save change</button>
+                    <button type="button" class="btn btn-success pull-left" data-dismiss="modal" ng-click='' >Save change</button>
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

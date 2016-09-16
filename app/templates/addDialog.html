@@ -8,21 +8,21 @@
                 <div class="modal-body">
                     <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Title">
+                        <input type="text" class="form-control" placeholder="Title" ng-model="add_title">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Author">
+                        <input type="text" class="form-control" placeholder="Author" ng-model="add_author">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Like">
+                        <input type="text" class="form-control" placeholder="Like" ng-model="add_like">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Comment">
+                        <input type="text" class="form-control" placeholder="Comment" ng-model="add_comment">
                     </div>
                 </div>
                 </form>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success pull-left">Submit</button>
+                    <button type="button" class="btn btn-success pull-left" ng-click="add()" data-dismiss="modal">Submit</button>
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

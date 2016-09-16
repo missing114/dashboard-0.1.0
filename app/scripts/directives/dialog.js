@@ -16,4 +16,4 @@ angular.module('dashboard')
 	return {
 		templateUrl: 'templates/editDialog.html'
 	};
-})
+});
