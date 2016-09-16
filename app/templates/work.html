@@ -1,11 +1,20 @@
 <div ng-controller="WorkController">
     <div class="navi col-xs-10 dashboard__works-filter">
-        <button class="btn btn-primary">Select Design</button>
-        <button class="btn btn-danger">Add Item</button>
-        <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
-        <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
-        <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
-        <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Design<span class="caret "></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="# ">List</a></li>
+                <li><a href="# ">Card</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-danger ">Add Item</button>
+        <div class="input-group pull-right " ">
+                <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
+                <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
+                <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
+                <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+        </div>
     </div>
     <div class="navi col-xs-10 dashboard__works-content">
         <div class="col-xs-4" ng-repeat="work in works ">
@@ -19,6 +28,10 @@
             <br>
             <span>{{work.comment}} </span>
             <br>
+            <div class="pull-right">
+                <button class="btn dashboard__works-edit" type="edit">Edit</button>|
+                <button class="btn dashboard__works-edit" type="delete">Delete</button>
+            </div>
         </div>
     </div>
 </div>
