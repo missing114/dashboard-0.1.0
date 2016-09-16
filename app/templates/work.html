@@ -21,6 +21,7 @@
     </div>
     <div class="navi col-xs-10 dashboard__works-content-card" ng-show="show == 'card'">
         <div class="col-xs-4" ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
+            {{work.selected.id}}
             <img src="{{work.image}}">
             <br>
             <span>{{work.title}} </span>
@@ -32,10 +33,10 @@
             <span>{{work.comment}} </span>
             <br>
             <div class="pull-right">
-                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_edit">
+                <button type="button" class="btn dashboard__works-edit"  data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
                     Edit
                 </button>|
-                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete">
+                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete"  ng-click='getwork(work)'>
                     Delete
                 </button>
             </div>
@@ -57,19 +58,19 @@
                 <td>{{ work.like }}</td>
                 <td>{{ work.comment }}</td>
                 <td>
-                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_edit">
+                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
                         Edit
                     </button>
-                     <div edit-dialog></div>
                 </td>
                 <td>
-                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete">
+                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete" ng-click='getwork(work)'>
                         Delete
                     </button>
                 </td>
             </tr>
         </table>
     </div>
+    <div edit-dialog></div>
     <!-- Modal -->
     <div class="modal fade" id="content_delete" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -82,7 +83,7 @@
                     This will permantently delete the item from the table and the action cannot be reversed. If you are sure, please comfirm with appropriate action.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Yes, I'm sure</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()" >Yes, I'm sure</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
