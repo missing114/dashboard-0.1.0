@@ -12,32 +12,32 @@
 
 <body>
     <div ui-view>
-        <a ui-sref="mainApp.login">Login</a>
+        <!-- <a ui-sref="mainApp.login"> Login </a> -->
     </div>
 	
 	<!-- Libs -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-   	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
-    <!-- // <script src="../bower_components/angular/angular.min.js"></script> -->
-    <script src="scripts/libs/angular-route.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- // <script src="scripts/libs/angular-route.min.js"></script> -->
+    <!-- // <script src="../bower_components/angular/angular.min.js"></script> -->
     
     <!-- Main page module -->
     <script src="scripts/app.js"></script>
 
     <!-- Services -->
+    <script src="scripts/services/session.js"></script>
     <script src="scripts/services/authenticate.js"></script>
     <script src="scripts/services/getContact.js"></script>
     <script src="scripts/services/getProfile.js"></script>
     <script src="scripts/services/getUser.js"></script>
-    <script src="scripts/services/session.js"></script>
-
+    
     <!-- Controllers -->
     <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/overview.js"></script>
-    <script src="scripts/controllers/work.js"></script>
     <script src="scripts/controllers/root.js"></script>
+    <script src="scripts/controllers/work.js"></script>
+    <script src="scripts/controllers/overview.js"></script>
     <script src="scripts/controllers/confirmBox.js"></script>
     <script src="scripts/controllers/contact.js"></script>
     <script src="scripts/controllers/producer.js"></script>

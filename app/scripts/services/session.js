@@ -11,17 +11,17 @@
 
  (function(){
 	'use strict';
-	angular.module('mainApp').service('SessionService', function($rootScope) {
+	angular.module('mainApp').service('SessionService', function($window) {
 		this.set = function(username) {
-			this.username = username;
+			$window.sessionStorage.SessionMessage = username;
 		};
 		this.get = function() {
-			return this.username
+			return $window.sessionStorage.SessionMessage;
 		};
 		this.destroy = function() {
-			this.username = null;
+			$window.sessionStorage.SessionMessage = null;
 		};
-		return this;
+		// return this;+
 	});
 
 	console.log("SessionService initialized");

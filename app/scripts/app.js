@@ -11,52 +11,54 @@
 (function() {
 'use strict';
 
-angular.module('mainApp', ['ui.router']).config(routeConfig);
-console.log("module mainApp initialized");
-
-/* Configures the routes and views */
-routeConfig.$inject = ['$stateProvider'];
-function routeConfig ($stateProvider) {
+angular.module('mainApp', ['ui.router']).config(
+function routeConfig ($stateProvider, $urlRouterProvider) {
   // Routes
-  $stateProvider
-    .state('mainApp', {
-      absract: true,
-      templateUrl: 'index.html'
-    })
-    .state('mainApp.login', {
+    $stateProvider
+    .state('login', {
       url: '/login',
-      // absract: true,
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: "LoginController"
     })
-    .state('mainApp.root', {
+    .state('root', {
       url: '/root',
       templateUrl: 'templates/root.html'
     })
-    .state('mainApp.root.overview', {
+    .state('root.overview', {
       url: '/overview',
       templateUrl: 'templates/overview.html'
     })
-    .state('mainApp.root.work', {
+    .state('root.work', {
       url: '/work',
       templateUrl: 'templates/work.html',
       controller: 'WorkController',
-      controllerAs: 'WorkCtrl',
-      // resolve: {
-      //   workDisplays: ['WorkService', function (WorkService) {
-      //     return WorkService.getDisplays();
-      //   }]
-      // }
     })
-    // .state('main.producer', {
-    //   url: '/producer',
-    //   templateUrl: 'templates/producer.html',
-    //   controller: 'ProducerController',
-    //   controllerAs: 'ProCtrl',
-    //   resolve: {
-    //     p: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-    //       return MenuService.getMenuItems($stateParams.category);
-    //     }]
-    //   }
-    // });
-}
+    .state('root.producer', {
+      url: '/producer',
+      templateUrl: 'templates/producer.html',
+    });
+
+    $urlRouterProvider.otherwise(function($state, $window){
+      console.log($window);
+      if ($window.sessionStorage && $window.sessionStorage.SessionMessage) {
+        return '/root.work';
+      } else {
+        return '/login';
+      }
+    });
+})
+.run(function($rootScope, $state, LoginService) {
+   $rootScope.$on('$stateChangeStart',
+       function(event, toState) {
+           console.log(LoginService.islogged(), toState.name);
+           if (!LoginService.islogged() && toState.name != 'login') {
+              event.preventDefault();
+              $state.go('login');
+           } else if (LoginService.islogged() && toState.name == 'login') {
+              event.preventDefault();
+              $state.go('root.work');
+           }
+       });
+});
+
 })();

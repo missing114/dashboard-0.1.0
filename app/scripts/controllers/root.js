@@ -16,7 +16,7 @@ function RootController($scope, $state, LoginService, SessionService) {
 
     $scope.logout = function() {
     	if (LoginService.logout()=='success') {
-    		$state.go('mainApp.login');
+    		$state.go('login');
         	SessionService.destroy();	
     	}
     };

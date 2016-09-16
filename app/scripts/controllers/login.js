@@ -27,7 +27,7 @@ function LoginController($scope, $state, LoginService, SessionService) {
       console.log(response);
       // Login successful
       if (response=='success') {
-        $state.go('mainApp.root.work');
+        $state.go('root.work');
         SessionService.set($scope.username);  
       }
       // Login failed

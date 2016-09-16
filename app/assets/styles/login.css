@@ -1,12 +1,14 @@
 .dash__login {
     background-image: url("../images/src/app/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-
+    padding-top: 300px;
 }
 
 .dash__login hr {
