@@ -16,3 +16,29 @@
 .dashboard__header > hr {
 	margin-top: 5px;
 }
+
+.dashboard__navi ul li {
+	list-style-type: none;
+	margin-bottom: 10px;
+	padding-left: 5px;
+}
+
+
+.dashboard__navi ul li:hover {
+	border-left: 3px solid orange;
+	color: orange;
+
+ }
+
+ .dashboard__navi ul li a{
+	color: black;
+	text-decoration: none;
+ }
+
+ .dashboard__navi ul li:hover  a{
+	color: orange;
+ }
+/*
+.dashboard__navi ul li a:hover {
+	border-left: 5px solid red;
+}*/

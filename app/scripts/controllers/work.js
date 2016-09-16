@@ -5,6 +5,7 @@
 
 angular.module('dashboard')
 .controller('WorkController', function($scope, $http) {
+	$scope.show = "card";
     $http({
         method: 'GET', 
         url: '/api/work'

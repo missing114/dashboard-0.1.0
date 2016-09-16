@@ -7,6 +7,7 @@
 
 angular.module("dashboard")
 .controller('RootController', function($scope, $state, SessionService){
+	$scope.today = new Date();
 	$scope.username = SessionService.get();
 	$scope.logout = function() {
 		SessionService.destroy();

@@ -4,20 +4,20 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Design<span class="caret "></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="# ">List</a></li>
-                <li><a href="# ">Card</a></li>
+                <li ng-click="show = 'list'"><a href="# ">List</a></li>
+                <li ng-click="show = 'card'"><a href="# ">Card</a></li>
             </ul>
         </div>
         <button class="btn btn-danger ">Add Item</button>
-        <div class="input-group pull-right " ">
-                <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
-                <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
-                <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
-                <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+        <div class="input-group pull-right ">
+            <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
+            <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
+            <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
+            <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
         </div>
     </div>
-    <div class="navi col-xs-10 dashboard__works-content">
-        <div class="col-xs-4" ng-repeat="work in works ">
+    <div class="navi col-xs-10 dashboard__works-content-card" ng-show="show == 'card'">
+        <div class="col-xs-4" ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
             <img src="{{work.image}}">
             <br>
             <span>{{work.title}} </span>
@@ -32,6 +32,43 @@
                 <button class="btn dashboard__works-edit" type="edit">Edit</button>|
                 <button class="btn dashboard__works-edit" type="delete">Delete</button>
             </div>
+        </div>
+    </div>
+
+    <div class="navi col-xs-10 dashboard__works-content-list" ng-show="show == 'list'">
+    <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Like</th>
+                    <th>Comments</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        <tr  ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
+               
+                    <td>{{ work.title }}</td>
+                    <td>{{ work.author }}</td>
+                    <td>{{ work.like }}</td>   
+                    <td>{{ work.comment }}</td>
+                    <td><button class="btn dashboard__works-edit" type="edit">Edit</button></td>
+                    <td><button class="btn dashboard__works-edit" type="delete">Delete</button></td>
+                </tr>
+            </table>
+            <!-- <img src="{{work.image}}">
+            <br>
+            <span>{{work.title}} </span>
+            <br>
+            <a herf=""><span>{{work.author}} </span></a>
+            <br>
+            <span>{{work.like}} </span>
+            <br>
+            <span>{{work.comment}} </span>
+            <br>
+            <div class="pull-right">
+                <button class="btn dashboard__works-edit" type="edit">Edit</button>|
+                <button class="btn dashboard__works-edit" type="delete">Delete</button>
+            </div> -->
         </div>
     </div>
 </div>

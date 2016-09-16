@@ -1,21 +1,22 @@
-.dashboard__works-filter {
+dashboard__works-content-card {
   margin-bottom: 10px; }
   .dashboard__works-filter input {
-    margin-left: 5px; }
-.dashboard__works-content div {
+    margin-left: 5px;
+     margin-bottom: 20px; }
+.dashboard__works-content-card div {
   padding-left: 3px; }
-  .dashboard__works-content div img {
+  .dashboard__works-content-card div img {
     width: 100%; }
-  .dashboard__works-content div span:nth-child(3) {
+  .dashboard__works-content-card div span:nth-child(3) {
     font-weight: bold;
     font-size: 1.5em; }
-  .dashboard__works-content div a {
+  .dashboard__works-content-card div a {
     color: green; }
   .dashboard__works-edit{
     padding: 0;
     border: none;
     background: none;
-    color: lightblue;
+    color: #71D4F4;
   }
   .dashboard__works-edit:hover{
     color: lightgrey;
