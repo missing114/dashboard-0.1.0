@@ -1,5 +1,6 @@
 .dashboard__header {
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .dashboard__header > img {
 	margin-left: 20px;
@@ -13,8 +14,8 @@
 	margin-right: 40px;
 }
 
-.dashboard__header > hr {
-	margin-top: 5px;
+.dashboard__navi {
+	margin-top: 20px;
 }
 
 .dashboard__navi ul li {
