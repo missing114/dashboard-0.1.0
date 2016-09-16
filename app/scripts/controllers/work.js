@@ -32,7 +32,7 @@ angular.module('dashboard')
             author: $('#UN').val(),
             like: $('#LK').val(),
             comment: $('#CM').val(),
-            image: 'assets/images/src/work/1.jpg'
+            image: ' '
         });
     };
     $scope.edit=function(target){
@@ -45,9 +45,17 @@ angular.module('dashboard')
 
 
     };
-    $scope.delete=function(work){
-    	var i = $scope.works.indexOf(work);
+    $scope.delete=function(target){
+        console.log(target);
+    	var i = $scope.works.indexOf(target);
     	$scope.works.splice(i,1);
+
+    };
+    $scope.getdelete = function(work){
+        console.log(work.title);
+        $scope.deletetarget=work;
+       
+
 
     };
     $scope.getwork = function(work){
@@ -80,5 +88,13 @@ angular.module('dashboard')
 		templateUrl:'templates/editDialog.html'
 		// templateUrl:"<div>dfdfdfdfweiofjwoeijfwief</div>"
 	};
+})
+.directive('confirmBox',function (){
+    console.log("in delete directive");
+    return{
+        restrict:'A',
+        templateUrl:'templates/confirmBox.html'
+        // templateUrl:"<div>dfdfdfdfweiofjwoeijfwief</div>"
+    };
 })
 
