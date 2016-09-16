@@ -11,7 +11,7 @@
 
  (function(){
 	'use strict';
-	angular.module('mainApp').service('SessionService', function($window) {
+	angular.module('dashboard').service('SessionService', function($window) {
 		this.set = function(username) {
 			$window.sessionStorage.SessionMessage = username;
 		};

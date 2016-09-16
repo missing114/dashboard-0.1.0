@@ -6,7 +6,7 @@
 (function() {
 "use strict";
 
-angular.module('mainApp')
+angular.module('dashboard')
 .controller('LoginController', LoginController);
 console.log("admin LoginController is initialized");
 /**

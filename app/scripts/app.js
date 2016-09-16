@@ -11,7 +11,7 @@
 (function() {
 'use strict';
 
-var app = angular.module('mainApp', ['ui.router']).config(
+var app = angular.module('dashboard', ['ui.router']).config(
 function routeConfig ($stateProvider, $urlRouterProvider) {
   // Routes
     $stateProvider

@@ -5,7 +5,7 @@
 (function() {
 "use strict";
 
-angular.module('mainApp').service('LoginService', LoginService);
+angular.module('dashboard').service('LoginService', LoginService);
 console.log("mainApp LoginService is initialized");
 LoginService.$inject = ['$http', '$window'];
 function LoginService($http, $window) {

@@ -1,14 +1,27 @@
 <div ng-controller="WorkController">
-    <div class="navi col-xs-10 dashboard--works_filter">
-        <button class="btn btn-primary">Select Design</button>
-        <button class="btn btn-danger">Add Item</button>
-        <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
-        <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
-        <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
-        <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+    <div class="navi col-xs-10 dashboard__works-filter">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Design<span class="caret "></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-click="show = 'list'"><a href="# ">List</a></li>
+                <li ng-click="show = 'card'"><a href="# ">Card</a></li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#content_add">
+            Add Item
+        </button>
+        <div add-dialog></div>
+        <div class="input-group pull-right ">
+            <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
+            <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
+            <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
+            <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+        </div>
     </div>
-    <div class="navi col-xs-10 dashboard--works_content">
-        <div class="col-xs-4" ng-repeat="work in works ">
+    <div class="navi col-xs-10 dashboard__works-content-card" ng-show="show == 'card'">
+        <div class="col-xs-4" ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
+            {{work.selected.id}}
             <img src="{{work.image}}">
             <br>
             <span>{{work.title}} </span>
@@ -19,6 +32,62 @@
             <br>
             <span>{{work.comment}} </span>
             <br>
+            <div class="pull-right">
+                <button type="button" class="btn dashboard__works-edit"  data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
+                    Edit
+                </button>|
+                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete"  ng-click='getwork(work)'>
+                    Delete
+                </button>
+            </div>
         </div>
-    </div>    
+    </div>
+    <div class="navi col-xs-10 dashboard__works-content-list" ng-show="show == 'list'">
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Like</th>
+                <th>Comments</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
+                <td>{{ work.title }}</td>
+                <td>{{ work.author }}</td>
+                <td>{{ work.like }}</td>
+                <td>{{ work.comment }}</td>
+                <td>
+                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
+                        Edit
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete" ng-click='getwork(work)'>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div edit-dialog></div>
+    <!-- Modal -->
+    <div class="modal fade" id="content_delete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete item?</h4>
+                </div>
+                <div class="modal-body">
+                    This will permantently delete the item from the table and the action cannot be reversed. If you are sure, please comfirm with appropriate action.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()" >Yes, I'm sure</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
