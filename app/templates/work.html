@@ -1,0 +1,55 @@
+
+<div class="navi col-xs-10 dashboard--works_filter">
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <div add-dialog></div>
+  </div>
+    <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select esign
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li ng-click='view=true' ng-init='view = true'><a href="#">view</a></li>
+    <li ng-click='view=false'><a href="#">list</a></li>
+  </ul>
+</div>
+<br>
+    <button class="btn btn-danger" id="myBtn" ng-click='add()' >Add Item</button>
+    <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
+    <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
+    <input class="pull-right" ng-model="filter_author" type="text" placeholder="Author">
+    <input class="pull-right" ng-model="filter_name" type="text" placeholder="Name">
+</div>
+<div id="main" >
+<div class="navi col-xs-10 dashboard--works_content" id='imgdiv' ng-show="view">
+    <div class="col-xs-4" ng-repeat="work in works |filter:{name:filter_name,like:filter_like,author:filter_author,comment:filter_comment}" >
+        <img src="{{work.image}}">
+        <br>
+        <span ng-model='title'>{{work.title}} </span>
+        <br>
+        <a herf=""><span ng-model='author'>{{work.author}} </span></a>
+        <br>
+        <span ng-model='like'>{{work.like}} </span>
+        <br>
+        <span ng-model='comment'>{{work.comment}} </span>
+        <br>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#edit" ng-click='getwork(work)'>edit</button>
+        <div edit-dialog></div>
+        <button ng-click='delete(work)'>delete</button>
+    </div>
+</div>
+ <div ng-show='!view' class="col-xs-4" ng-repeat="work in works ">
+ <span>{{work.title}} </span>
+        <br>
+ </div>
+
+
+
+
+
+
+</div>
+
+
+

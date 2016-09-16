@@ -1,0 +1,31 @@
+<div class="modal fade" id="edit" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Inputs</h4>
+        </div>
+        <div class="modal-body">
+        
+          <span><input id='input1'  value="{{i1Value}}" ></span><br>
+          <span><input id='input2'  value="{{i2Value}}" ></span><br>
+          <span><input id='input3'  value="{{i3Value}}" ></span><br>
+          <span><input id='input4'  value="{{i4Value}}" ></span><br>
+          <span><input id='input5'  value="{{i5Value}}" ></span><br>
+          
+        </div>
+
+        <div class="modal-footer">
+        {{target}}
+           <button ng-click='edit(target)' class="btn btn-default pull-left" type = "button">submit</button>
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
