@@ -21,7 +21,7 @@
     </div>
     <div class="navi col-xs-10 dashboard__works-content-card" ng-show="show == 'card'">
         <div class="col-xs-4" ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
-            {{work.selected.id}}
+
             <img src="{{work.image}}">
             <br>
             <span>{{work.title}} </span>

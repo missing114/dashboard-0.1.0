@@ -6,15 +6,15 @@
 angular.module('dashboard').service('SessionService', function($window) {
 
 	this.set = function(user) {
-        $window.sessionStorage.username = user;
+        $window.localStorage.username = user;
 	};
 	this.get = function() {
-		return $window.sessionStorage.username
+		return $window.localStorage.username
 	};
 	this.destroy = function() {
-		$window.sessionStorage.clear();
+		$window.localStorage.clear();
 	};
 	this.isloged = function() {
-		return Boolean($window.sessionStorage.username != undefined);
+		return Boolean($window.localStorage.username != undefined);
 	}
 });

@@ -20,6 +20,10 @@ angular.module('dashboard')
                 like: $scope.add_like,
                 comment: $scope.add_comment
             });
+            $scope.add_title = '';
+            $scope.add_author = '';
+            $scope.add_like = '';
+            $scope.add_comment = '';
         };
 
         $scope.edit = function() {
