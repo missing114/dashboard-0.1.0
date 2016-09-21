@@ -13,13 +13,13 @@
 	'use strict';
 	angular.module('dashboard').service('SessionService', function($window) {
 		this.set = function(username) {
-			$window.sessionStorage.SessionMessage = username;
+			$window.sessionStorage.username = username;
 		};
 		this.get = function() {
-			return $window.sessionStorage.SessionMessage;
+			return $window.sessionStorage.username;
 		};
 		this.destroy = function() {
-			$window.sessionStorage.SessionMessage = null;
+			$window.sessionStorage.clear();
 		};
 		// return this;+
 	});

@@ -6,7 +6,7 @@
 "use strict";
 
 angular.module('dashboard').service('LoginService', LoginService);
-console.log("mainApp LoginService is initialized");
+console.log("LoginService is initialized");
 LoginService.$inject = ['$http', '$window'];
 function LoginService($http, $window) {
   var s = this;
@@ -33,7 +33,7 @@ function LoginService($http, $window) {
   };
 
   s.islogged = function() {
-    return Boolean($window.sessionStorage.SessionMessage!='null') || false;
+    return Boolean($window.sessionStorage.username!=undefined) || false;
   }
 
   // return this;

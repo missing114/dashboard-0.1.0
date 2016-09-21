@@ -9,12 +9,15 @@ angular.module('dashboard')
 .controller('RootController', RootController);
 console.log("Root controller initialized");
 
-RootController.$inject = ['$scope', '$state', 'LoginService', 'SessionService'];
-function RootController($scope, $state, LoginService, SessionService) {
+RootController.$inject = ['$scope', '$state', 'LoginService', 'SessionService', 'getUserService'];
+function RootController($scope, $state, LoginService, SessionService, getUserService) {
     $scope.today = new Date();
-    $scope.username = SessionService.get();
-    // console.log(SessionService.get());
-
+    
+    getUserService.getFullname().then(function(response) {
+    	$scope.username = response;
+    	console.log($scope.username);
+    });
+    
     $scope.logout = function(){
     	$.when(LoginService.logout(SessionService)).then(function() {
     		// console.log(LoginService.islogged(), $window.sessionStorage.SessionMessage);
