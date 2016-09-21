@@ -1,6 +1,16 @@
+.dashboard__overview-title {
+	font-size: 30px;
+}
+
+.dashboard__overview-content {
+	background-color: #E8E8E8;
+	margin-right: 0px;
+}
+
 .dashboard__overview-content-demo {
 	width: 200px;
 	height: 200px;
 	background-image: url("./assets/images/src/profile/minh.png");
 	background-repeat: no-repeat;
+	background-size: 100%;
 }

@@ -36,6 +36,10 @@ function routeConfig ($stateProvider, $urlRouterProvider) {
     .state('root.producer', {
       url: '/producer',
       templateUrl: 'templates/producer.html',
+    })
+    .state('root.contact', {
+      url: '/contact',
+      templateUrl: 'templates/contact.html',
     });
 
     $urlRouterProvider.otherwise('/login');

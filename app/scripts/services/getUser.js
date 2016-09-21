@@ -16,10 +16,11 @@ function getUserService($http, SessionService) {
       'user': SessionService.get(),
     };
 
-    return $http.post('/api/getuser', params).then(function(response) {
-    	console.log(response);
-        return response.name;
-      });
+    console.log(params);
+    return $http.get('/api/getuser', 'params').then(function(response) {
+    	// console.log(response);
+      return response.data.name;
+    });
   };
 
   // return this;

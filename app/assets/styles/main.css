@@ -1,16 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 .dashboard__header {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	height: 50px;
+	/*margin-top: 10px;*/
+	margin-bottom: 20px;
+	background-color: #E8E8E8;
 }
 .dashboard__header > img {
+	margin-top: 10px;
 	margin-left: 20px;
 }
 
 .dashboard__header > span {
+	font-size: 18px;
+	margin-top: 20px;
 	margin-left: 40px;
+	margin-bottom: 20px;
+	vertical-align: middle;
 }
 
 .dashboard__header > button {
+	margin-top: 10px;
 	margin-right: 40px;
 }
 
