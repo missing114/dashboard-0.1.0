@@ -11,7 +11,7 @@
 (function() {
 'use strict';
 
-var app = angular.module('dashboard', ['ui.router']).config(
+var app = angular.module('dashboard', ['ui.router', 'ngResource']).config(
 function routeConfig ($stateProvider, $urlRouterProvider) {
   // Routes
     $stateProvider
@@ -45,10 +45,15 @@ function routeConfig ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
 });
 
+app.config(['$resourceProvider', function($resourceProvider) {
+  // Don't strip trailing slashes from calculated URLs
+  $resourceProvider.defaults.stripTrailingSlashes = false;
+}]);
+
 app.run(function($rootScope, $state, LoginService) {
    $rootScope.$on('$stateChangeStart',
        function(event, toState) {
-           console.log(LoginService.islogged(), toState.name);
+           // console.log(LoginService.islogged(), toState.name);
            if (!LoginService.islogged() && toState.name != 'login') {
               event.preventDefault();
               $state.go('login');

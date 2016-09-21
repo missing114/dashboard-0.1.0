@@ -8,7 +8,7 @@
 
 angular.module('dashboard')
 .controller('LoginController', LoginController);
-console.log("admin LoginController is initialized");
+console.log("LoginController is initialized");
 /**
  * Handles login form credentials and redirects user to page.
  */

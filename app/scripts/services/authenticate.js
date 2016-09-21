@@ -17,7 +17,7 @@ function LoginService($http, $window) {
       'userName': username,
       'password': password,
     };
-
+    console.log(params);
     return $http.post('/api/login', params).then(function(response) {
         return 'success';
       }, function(response){      

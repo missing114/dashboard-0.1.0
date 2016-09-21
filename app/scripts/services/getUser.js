@@ -6,21 +6,13 @@
 
 angular.module('dashboard').service('getUserService', getUserService);
 console.log("getUserService is initialized");
-getUserService.$inject = ['$http', 'SessionService'];
-function getUserService($http, SessionService) {
+getUserService.$inject = ['$resource', 'SessionService'];
+function getUserService($resource, SessionService) {
   var s = this;
 
   /** Get the full name of the current logged user */
-  s.getFullname = function() {
-    var params = {
-      'user': SessionService.get(),
-    };
-
-    console.log(params);
-    return $http.get('/api/getuser', 'params').then(function(response) {
-    	// console.log(response);
-      return response.data.name;
-    });
+  s.getResource = function() {
+    return $resource('/api/getuser')
   };
 
   // return this;

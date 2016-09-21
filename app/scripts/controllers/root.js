@@ -13,10 +13,11 @@ RootController.$inject = ['$scope', '$state', 'LoginService', 'SessionService', 
 function RootController($scope, $state, LoginService, SessionService, getUserService) {
     $scope.today = new Date();
     
-    getUserService.getFullname().then(function(response) {
-    	$scope.username = response;
-    	console.log($scope.username);
+    var getUserCall = getUserService.getResource().get({'user': SessionService.get()}, function(response) {
+        // console.log(response);
+        $scope.username = response.name; 
     });
+    // console.log($scope.username);
     
     $scope.logout = function(){
     	$.when(LoginService.logout(SessionService)).then(function() {
