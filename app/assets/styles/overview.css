@@ -5,6 +5,12 @@
 .dashboard__overview-content {
 	background-color: #E8E8E8;
 	margin-right: 0px;
+	padding: 40px;
+}
+
+.dashboard__overview-content p{
+	margin-bottom: 20px;
+	font-size: 20px;
 }
 
 .dashboard__overview-content-demo {
@@ -13,4 +19,18 @@
 	background-image: url("./assets/images/src/profile/minh.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.dashboard__overview-content-section {
+	background-color: #FEFEFE;
+	font-size: 18px;
+	margin-top: 40px;
+}
+
+.dashboard__overview-content-sectionC {
+	background-color: #FEFEFE;
+	margin-top: 2px;
+	font-size: 18px;
 }
