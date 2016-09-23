@@ -16,29 +16,24 @@ function ContactController($scope, ContactService) {
   	$scope.phone = '';
   	$scope.locations = [];
   	$scope.location = '';
-  	$scope.infoTab = null;
-  	$scope.queryTab = null;
-	$scope.confTab = null;
+  	$scope.categories = [];
+  	$scope.category = '';
+ //  	$scope.infoTab = null;
+ //  	$scope.queryTab = null;
+	// $scope.confTab = null;
 
 	ContactService.getLocation().then(function(response) {
 		$scope.locations = response;
 		// console.log($scope.locations);
 	});
 
-  	$scope.alertMe = function() {
-    setTimeout(function() {
-      $window.alert('You\'ve selected the alert tab!');
-    });
-  };
+	ContactService.getCategory().then(function(response) {
+		$scope.categories = response;
+		// console.log($scope.locations);
+	});
 
-  $scope.model = {
-    name: 'Tabs'
-  };
-
-  $scope.tabSwitch = function(toTab) {
-  	console.log($scope.infoTab, $scope.queryTab, $scope.confTab);
-  	$scope.toTab.active = true;
-  }
+	$scope.tabSwitch = function(toTab) {
+	}
 
 
 };
