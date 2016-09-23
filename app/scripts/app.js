@@ -11,7 +11,7 @@
 (function() {
 'use strict';
 
-var app = angular.module('dashboard', ['ui.router', 'ngResource']).config(
+var app = angular.module('dashboard', ['ui.router', 'ngResource', 'ui.bootstrap']).config(
 function routeConfig ($stateProvider, $urlRouterProvider) {
   // Routes
     $stateProvider
@@ -52,8 +52,8 @@ app.config(['$resourceProvider', function($resourceProvider) {
 
 app.run(function($rootScope, $state, LoginService) {
    $rootScope.$on('$stateChangeStart',
-       function(event, toState) {
-           // console.log(LoginService.islogged(), toState.name);
+       function(event, toState, toParams, fromState, fromParams) {
+           console.log(fromState.name, toState.name, LoginService.islogged());
            if (!LoginService.islogged() && toState.name != 'login') {
               event.preventDefault();
               $state.go('login');

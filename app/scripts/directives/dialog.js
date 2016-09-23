@@ -5,19 +5,19 @@
 
 angular.module('dashboard')
 .directive('addDialog', function(){
-	console.log("in directive");
+	console.log("addDialog directive initialized");
 	return {
 		templateUrl: 'templates/addDialog.html'
 	};
 })
 .directive('editDialog', function(){
-	console.log("in directive");
+	console.log("editDialog directive initialized");
 	return {
 		templateUrl: 'templates/editDialog.html'
 	};
 })
 .directive('confirmBox',function (){
-    console.log("in delete directive");
+    console.log("confirmBox directive initialized");
     return{
         restrict:'A',
         templateUrl:'templates/confirmBox.html'

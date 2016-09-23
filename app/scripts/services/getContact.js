@@ -12,10 +12,9 @@ function ContactService($http, $window) {
   var s = this;
 
   s.getLocation = function() {
-    var params = {};
-
-    return $http.get('/api/location', params).then(function(response) {
-        return response.data.location;
+    return $http.get('/api/location').then(function(response) {
+        // console.log(response);
+        return response.data.locations;
   	});
   };
 

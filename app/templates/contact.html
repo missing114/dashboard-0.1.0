@@ -1,8 +1,45 @@
 <div ng-controller="ContactController">
-    <div class="navi col-xs-10 dashboard__contact-title">
-        Contact
-    </div>
-    <div class="navi col-xs-10 dashboard__contact-content">
+	<div class="col-xs-10 container">
+		<div class="row">
+	        <div class="modal-header">
+	           <h3>Contact</h3>
+	        </div>
+			<form name="outerForm" class="contact-form">
+			    <uib-tabset active="active">
+			      <uib-tab index="0" heading="Information" class="col-xs-4 contact-tab" ng-model="infoTab">
+			        <ng-form name="nestedForm">
+			          <div class="form-group">
+			            <label>First Name</label>
+			            <input type="text" class="form-control contact-input" required ng-model="fisrtname"/>
+			           	<label>Last Name</label>
+			            <input type="text" class="form-control contact-input" required ng-model="lastname"/>
+			            <label>Email</label>
+			            <input type="email" class="form-control contact-input" required ng-model="email"/>
+			          	<label>Phone</label>
+			            <input type="phone" class="form-control contact-input" required ng-model="phone"/>
+			            <label>Location</label>
+			            <select class="form-control" ng-model="location" ng-options="loc.title for loc in locations">
+			            </select>
+			          </div>
+			        </ng-form>
+			        <div class="contact-time">
+						The current time is: {{time}}
+					</div>
+					<button class="btn btn-success" ng-click="active = 1">NEXT</button>		
+			      </uib-tab>
 
-    </div>
+			      <uib-tab index="1" heading="Query" class="col-xs-4 contact-tab" ng-model="queryTab">
+			        Some Tab Content
+			      </uib-tab>
+
+			      <uib-tab index="2" heading="Confirmation" class="col-xs-4 contact-tab" ng-model="confTab">
+			        More Tab Content
+			      </uib-tab>
+			    </uib-tabset>
+			</form>
+
+
+		</div>
+	</div>
 </div>  
+

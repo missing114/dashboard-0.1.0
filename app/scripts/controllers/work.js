@@ -11,8 +11,8 @@ angular.module('dashboard')
             url: '/api/work'
         }).success(function(response) {
             $scope.works = response.works;
-
         });
+        
         $scope.add = function() {
             $scope.works.push({
                 title: $scope.add_title,
