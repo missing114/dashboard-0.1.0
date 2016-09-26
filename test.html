@@ -1,0 +1,42 @@
+ <!doctype html>
+    <html ng-app="ui.bootstrap.demo">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+        <script type="text/javascript">
+        angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
+        angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function($scope, $window, $timeout) {
+          $scope.activeTabIndex = 0
+          $scope.tabs = [];
+
+          $scope.addTab = function() {
+            var newTab = {  title: 'Tab ' + ($scope.tabs.length + 1) };
+            $scope.tabs.push(newTab); 
+            $timeout(function(){
+              $scope.activeTabIndex = ($scope.tabs.length - 1);
+            });
+            console.log($scope.activeTabIndex);
+          };
+        });
+        </script>
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div ng-controller="TabsDemoCtrl">
+            
+            Active index: {{ activeTabIndex  }} <br /> Tab count: {{ tabs.length }} <br />
+            
+            <input type="button" value="Add Tab" ng-click="addTab()" />
+            
+            <uib-tabset active="activeTabIndex">
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}">Some content</uib-tab>
+            </uib-tabset>
+        </div>
+    </body>
+    </html>
+    
+    
+    
+    
+    

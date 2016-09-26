@@ -1,5 +1,5 @@
 'use strict';
-// LOGIN CONTROLLER
+// LOGIN CONTROLLER 
 // Description: Define the following functionalities:
 // Making service calls to login a user
 
@@ -9,6 +9,8 @@ angular.module('dashboard')
         $scope.password = '';
         $scope.error = '';
         $scope.valid = function() {
+            console.log($scope.username);
+            console.log($scope.password);
             return !($scope.username != '' && $scope.password != '');
         };
         $scope.submit = function() {

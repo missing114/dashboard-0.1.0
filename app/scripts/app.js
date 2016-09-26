@@ -9,7 +9,7 @@
  */
 
 
-var app = angular.module('dashboard', ['ui.router']);
+var app = angular.module('dashboard', ['ui.router', 'ngResource','ui.bootstrap','ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -36,22 +36,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('root.contact', {
             url: '/contact',
             templateUrl: "templates/contact.html"
+        })
+        .state('error', {
+            url: '/error',
+            templateUrl: "templates/404.html"
         });
-
 
     $urlRouterProvider.otherwise('/login');
 
 });
 
 
-app.run(function($rootScope, $state, SessionService) {
-
+app.run(function($rootScope, $state, LoginService) {
     $rootScope.$on('$stateChangeStart',
         function(event, toState) {
-            if (!SessionService.isloged() && toState.name != 'login') {
+            if (!LoginService.isloged() && toState.name != 'login') {
                event.preventDefault();
                $state.go('login');
-            } else if (SessionService.isloged() && toState.name == 'login') {
+            } else if (LoginService.isloged() && toState.name == 'login') {
                event.preventDefault();
                $state.go('root.work');
             }

@@ -6,9 +6,12 @@
 // Populate the current date that the user log in
 
 angular.module("dashboard")
-.controller('RootController', function($scope, $state, SessionService){
+.controller('RootController', function($scope, $state, SessionService,getUserService){
 	$scope.today = new Date();
-	$scope.username = SessionService.get();
+	// $scope.username = SessionService.get();
+	getUserService.getuser().then(function(response) {
+		$scope.username = response.data.name;
+	});
 	$scope.logout = function() {
 		SessionService.destroy();
 		$state.go('login');

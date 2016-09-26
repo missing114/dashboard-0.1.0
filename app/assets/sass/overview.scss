@@ -1,0 +1,39 @@
+
+
+.dashboard__overview {
+	color: #5D5C5C;
+    margin-bottom: 50px;
+    background-color: #EDEEEF;
+    padding-left: 2%;
+    padding-right: 2%;
+    .dashboard__overview-name {
+    	margin-top: 10px;
+        background-color: #EDEEEF;
+    }
+    .dashboard__overview-image {
+        width: 200px;
+        height: 200px;
+        background-size: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .dashboard__overview-intro {
+    	font-size: 1.2em;
+        background-color: #EDEEEF;
+    }
+    .dashboard__overview-section {
+        background-color: #FAFAFA;
+        font-size: 18px;
+        margin-top: 10px;
+        border: 0.5px solid #ECECEC;
+        padding: 10px;
+    }
+    .dashboard__overview-sectionC {
+        background-color: white;
+        padding-top: 2px;
+        font-size: 18px;
+        padding-bottom: 20px;
+        padding: 10px;
+        border: 0.5px solid #ECECEC;
+    }
+}

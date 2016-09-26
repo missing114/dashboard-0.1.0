@@ -11,7 +11,6 @@
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#content_add">
             Add Item
         </button>
-        <div add-dialog></div>
         <div class="input-group pull-right ">
             <input class="pull-right" ng-model="filter_comment" type="text" placeholder="Comment">
             <input class="pull-right" ng-model="filter_like" type="text" placeholder="Like">
@@ -21,7 +20,6 @@
     </div>
     <div class="navi col-xs-10 dashboard__works-content-card" ng-show="show == 'card'">
         <div class="col-xs-4" ng-repeat="work in works | filter:filter_name | filter: filter_author|filter: filter_like| filter: filter_comment">
-
             <img src="{{work.image}}">
             <br>
             <span>{{work.title}} </span>
@@ -33,10 +31,10 @@
             <span>{{work.comment}} </span>
             <br>
             <div class="pull-right">
-                <button type="button" class="btn dashboard__works-edit"  data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
+                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_edit" ng-click='getwork(work)'>
                     Edit
                 </button>|
-                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete"  ng-click='getwork(work)'>
+                <button type="button" class="btn dashboard__works-edit" data-toggle="modal" data-target="#content_delete" ng-click='getwork(work)'>
                     Delete
                 </button>
             </div>
@@ -70,6 +68,11 @@
             </tr>
         </table>
     </div>
+    <div class="jumbotron loading-spiner-holder" data-loading>
+       <img src="assets/images/src/app/ajax-loader.gif" />
+    </div>
+    
+    <div add-dialog></div>
     <div edit-dialog></div>
     <!-- Modal -->
     <div class="modal fade" id="content_delete" tabindex="-1" role="dialog">
@@ -83,7 +86,7 @@
                     This will permantently delete the item from the table and the action cannot be reversed. If you are sure, please comfirm with appropriate action.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()" >Yes, I'm sure</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()">Yes, I'm sure</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

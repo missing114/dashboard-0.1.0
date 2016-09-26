@@ -1,37 +1,26 @@
 .dashboard__login {
-	background-image: url("../images/src/app/background.jpg");
-	color: white;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+  background-image: url("../images/src/app/background.jpg");
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .dashboard__login hr {
+    width: 60%;
+    text-align: center; }
+  .dashboard__login div {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%; }
+    .dashboard__login div div {
+      width: 100%;
+      padding-left: 0px;
+      margin-left: 0px; }
+      .dashboard__login div div button {
+        width: 100%;
+        display: block; }
 
-}
-
-.dashboard__login hr {
-	width: 60%;
-	text-align: center;
-}
-
-.dashboard__login div{
-	text-align: center;
-	width: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
-}
-
-.dashboard__login div div{
-	width: 100%;
-	padding-left: 0px;
-	margin-left: 0px;
-}
-
-.dashboard__login div div button{
-	width: 100%;
-	display: block;
-}
-
-.login-error{
-	color: red;
-}
+.login-error {
+  color: red; }

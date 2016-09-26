@@ -1,0 +1,31 @@
+<div class="col-xs-10" ng-controller="OverviewController">
+    <h1>Overview</h1>
+    <div class="navi col-xs-10 dashboard__overview jumbotron">
+        <div class="dashboard__overview-name">
+            <h4>{{username}} - {{nickname}}</h4>
+        </div>
+        <img class="dashboard__overview-image" id="overview-profileImage" src={{profile_image}}></img>
+        <div class="dashboard__overview-intro">
+            Welcome to our dashboard application. This application guild will introduce you to things that you can d while staying here. All the sections mentioned below can be accessed from the navigation menu on the left side.
+        </div>
+
+        <div class="collapsed dashboard__overview-section" data-toggle="collapse" data-target="#collapsable-sec1">
+            Work Section
+        </div>
+        <div class="collapse dashboard__overview-sectionC" id="collapsable-sec1">
+            This section contains the demonstration for all the final products that has been produced in the market
+        </div>
+        <div class="collapsed dashboard__overview-section" data-toggle="collapse" data-target="#collapsable-sec2">
+            Producer Section
+        </div>
+        <div class="collapse dashboard__overview-sectionC" id="collapsable-sec2">
+            This section contains information about the creator of all the works and how to get in touch with them
+        </div>
+        <div class="collapsed dashboard__overview-section" data-toggle="collapse" data-target="#collapsable-sec3">
+            Contact Section
+        </div>
+        <div class="collapse dashboard__overview-sectionC" id="collapsable-sec3">
+            This section provides a gateway for users to voice out opinions regarding the application and any other questions or concerns that one might have
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+.dashboard__header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    img {
+        margin-left: 20px;
+    }
+    span {
+        margin-left: 40px;
+    }
+    button {
+        margin-right: 40px;
+    }
+}
+
+.dashboard__navi {
+    margin-top: 20px;
+    ul {
+        li {
+            list-style-type: none;
+            margin-bottom: 10px;
+            padding-left: 5px;
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            &:hover {
+                border-left: 3px solid orange;
+                color: orange;
+                a {
+                    color: orange;
+                }
+            }
+            ;
+        }
+    }
+}
+
+
