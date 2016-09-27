@@ -13,6 +13,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./app/assets/styles'))
 
 });
+
+
+gulp.task('watch', function() {
+  gulp.watch('./app/assets/sass/*.scss', ['sass']);
+});
+
+
+
+
+
+
+
 gulp.task('task1' , function(){
 		return gulp.src(['./app/assets/images/src/app/*.jpg','./app/assets/images/src/app/*.png'])
 		.pipe(imagemin())
@@ -57,3 +69,10 @@ gulp.task('jshint', function() {
 gulp.task('imagemin',['task1','task2','task3']);
 
 gulp.task('clean',['clean1','clean2','clean3']);
+
+
+
+
+
+
+

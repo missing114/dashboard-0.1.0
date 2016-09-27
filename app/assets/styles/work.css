@@ -1,11 +1,16 @@
 .dashboard__works-filter {
-  margin-top: 20px; }
+  margin-top: 20px div;
+    margin-top-padding-left: 0px; }
 
 .dashboard__works-content-card {
   margin-bottom: 10px; }
 
-.dashboard__works-filter input {
+.dashboard__works-filter .btn-group {
   margin-left: 5px;
+  margin-bottom: 20px; }
+
+.dashboard__works-filter input {
+  margin-right: 5px;
   margin-bottom: 20px; }
 
 .dashboard__works-content-card div {

@@ -1,4 +1,6 @@
 .comfirmation_detail {
-	border: 1px solid black;
-	padding: 5px;
-}
+  border: 1px solid black;
+  padding: 5px; }
+
+.contact__information-date {
+  color: green; }

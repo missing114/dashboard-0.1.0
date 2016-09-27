@@ -29,20 +29,18 @@
         $scope.max = 10;
         $scope.isReadonly = false;
 
+
+        // star rating system hover to show span function
         $scope.hoveringOver = function(value) {
             $scope.overStar = value;
             $scope.query.priority = value;
             $scope.percent = 100 * (value / $scope.max);
         };
 
-
-
-
         $scope.infor_active = true;
         $scope.query_active = false;
         $scope.confirm_active = false;
         $scope.confirmation_number = Math.floor(Math.random() * 10000000000) + 1000000000 
-
 
         getContactService.getlocation().then(function(response) {
             // success store works 
@@ -52,6 +50,7 @@
             console.log("error!");
         });
 
+        // http get category service 
         getContactService.getCategory().then(function(response) {
             // success store works 
             $scope.query.categories = response.data.categories;

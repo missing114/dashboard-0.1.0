@@ -1,24 +1,66 @@
-.dashboard__header {
-  margin-top: 10px;
-  margin-bottom: 10px; }
-  .dashboard__header img {
-    margin-left: 20px; }
-  .dashboard__header span {
-    margin-left: 40px; }
-  .dashboard__header button {
-    margin-right: 40px; }
+@media (max-width: 768px) {
+  .dashboard__header div div {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .dashboard__header div div img {
+      margin-left: 20px; }
+    .dashboard__header div div div {
+      width: 100%;
+      padding-top: 10px; }
+      .dashboard__header div div div button {
+        margin-top: -2px; }
+    .dashboard__header div div > button {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 0px !important; }
+    .dashboard__header div div > span {
+      margin-top: 10px;
+      margin-left: 20px; }
+  .dashboard__navi {
+    margin-top: 20px; }
+    .dashboard__navi ul li {
+      list-style-type: none;
+      margin-bottom: 10px;
+      padding-left: 5px; }
+      .dashboard__navi ul li a {
+        color: black;
+        text-decoration: none; }
+      .dashboard__navi ul li:hover {
+        border-bottom: 1px dashed pink;
+        color: pink; }
+        .dashboard__navi ul li:hover a {
+          color: pink; } }
 
-.dashboard__navi {
-  margin-top: 20px; }
-  .dashboard__navi ul li {
-    list-style-type: none;
-    margin-bottom: 10px;
-    padding-left: 5px; }
-    .dashboard__navi ul li a {
-      color: black;
-      text-decoration: none; }
-    .dashboard__navi ul li:hover {
-      border-left: 3px solid orange;
-      color: orange; }
-      .dashboard__navi ul li:hover a {
+@media (min-width: 768px) {
+  .dashboard__header div div {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .dashboard__header div div img {
+      margin-left: 20px; }
+    .dashboard__header div div div {
+      width: 90%; }
+      .dashboard__header div div div button {
+        margin-top: -2px; }
+    .dashboard__header div div > button {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 0px !important; }
+    .dashboard__header div div > span {
+      margin-top: 10px;
+      margin-left: 20px; }
+  .dashboard__navi {
+    margin-top: 20px; }
+    .dashboard__navi ul li {
+      list-style-type: none;
+      margin-bottom: 10px;
+      padding-left: 5px; }
+      .dashboard__navi ul li a {
+        color: black;
+        text-decoration: none; }
+      .dashboard__navi ul li:hover {
+        border-left: 3px solid orange;
         color: orange; }
+        .dashboard__navi ul li:hover a {
+          color: orange; } }
