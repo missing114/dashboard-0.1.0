@@ -3,23 +3,26 @@
 // Description: Define the following functionalities:
 // All the functionalities on the "Work" section to display items and filter them
 
-angular.module('dashboard')
-    .controller('WorkController', function($scope, $http) {
+    angular.module('dashboard')
+        .controller('WorkController', WorkController);
+
+
+    WorkController.$inject = ['$scope', '$http', 'getWorkService'];
+
+    // controller for works
+    function WorkController($scope, $http, getWorkService) {
         $scope.show = 'card';
-        $http({
-            method: 'GET',
-            url: '/api/work'
-        }).success(function(response) {
-            $scope.works = response.works;
+        // http to get data from server
+        getWorkService.getworks().then(function(response) {
+            // success store works 
+            $scope.works = response.data.works;
+        }, function(response) {
+            console.log("getWork error!");
         });
-        
+
         $scope.add = function() {
-            $scope.works.push({
-                title: $scope.add_title,
-                author: $scope.add_author,
-                like: $scope.add_like,
-                comment: $scope.add_comment
-            });
+            var add_work = getWorkService.addWork($scope.add_title, $scope.add_author, $scope.add_like, $scope.add_comment);
+            $scope.works.push(add_work);
         };
 
         $scope.edit = function() {
@@ -29,14 +32,6 @@ angular.module('dashboard')
             $scope.works[i].like = $scope.edit_like;
             $scope.works[i].comment = $scope.edit_comment;
         }
-
-        // $scope.delete = function() {
-        //     $scope.works.push({
-        //         title: $scope.add_title,
-        //         author: $scope.add_author,
-        //         comment: $scope.add_comment
-        //     });
-        // };
 
         $scope.delete = function() {
         	var i = $scope.works.indexOf($scope.target);
@@ -52,4 +47,4 @@ angular.module('dashboard')
             $scope.edit_like = work.like;
             $scope.edit_comment = work.comment;
         };
-    });
+    };

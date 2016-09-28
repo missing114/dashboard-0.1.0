@@ -7,8 +7,8 @@
 
 angular.module('dashboard').service('ContactService', ContactService);
 console.log("ContactService is initialized");
-ContactService.$inject = ['$http', '$window'];
-function ContactService($http, $window) {
+ContactService.$inject = ['$http'];
+function ContactService($http) {
   var s = this;
 
   s.getLocation = function() {

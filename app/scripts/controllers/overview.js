@@ -12,10 +12,6 @@ console.log("OverviewController is initialized");
  */
 OverviewController.$inject = ['$scope', 'ProfileService'];
 function OverviewController($scope, ProfileService) {
-	$scope.username = '';
-  $scope.usernickname = '';
-  $scope.userimg = '';
-
 	var res = ProfileService.getProfile();
   res.then(function(response) {
    	console.log(response);

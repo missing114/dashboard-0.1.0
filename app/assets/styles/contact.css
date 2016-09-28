@@ -1,28 +1,6 @@
-.modal-header {
-	margin-right: 40px;
-}
-.contact-form {
-	margin-right: 40px;
-}
-.contact-tab {
-	text-align: center;
-	padding: 0px;
-}
-p{
-	margin-top: 20px;
-}
-.contact-input {
-	margin-bottom: 20px;
-}
-.contact-input-content {
-	height: 200px;
-}
+.comfirmation_detail {
+  border: 1px solid black;
+  padding: 5px; }
 
-.contact-time {
-	height: 40px;
-	margin-bottom: 20px;
-	/*margin-right: 40px;*/
-	background-color: #99ffcc;
-	border-radius: 4px;
-	padding: 10px;
-}
+.contact__information-date {
+  color: green; }

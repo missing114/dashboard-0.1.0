@@ -24,10 +24,11 @@ function LoginController($scope, $state, LoginService, SessionService) {
   $scope.login = function() {
     var res = LoginService.login($scope.username, $scope.password);
     res.then(function(response){
-      console.log(response);
+      
       // Login successful
       if (response=='success') {
-        SessionService.set($scope.username);  
+        SessionService.set($scope.username);
+        console.log(response); 
         $state.go('root.work');
       }
       // Login failed

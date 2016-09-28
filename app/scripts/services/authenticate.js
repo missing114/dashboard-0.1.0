@@ -33,9 +33,8 @@ function LoginService($http, $window) {
   };
 
   s.islogged = function() {
-    return Boolean($window.sessionStorage.username!=undefined) || false;
+    return Boolean($window.localStorage.username != undefined);
   }
-
   // return this;
 }
 

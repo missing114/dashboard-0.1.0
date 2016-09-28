@@ -1,17 +1,36 @@
 <div ng-controller="RootController">
-    <div class="dashboard__header">
-        <img src="./assets/images/src/app/logo.png">
-        <span>{{username}}</span>
-        <span>{{today | date: "MM/dd/y"}}</span>
-        <button ng-click="logout()" class="pull-right btn btn-default">Log out</button>
+    <div class="navbar navbar-default dashboard__header">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="./assets/images/src/app/logo.png">
+                <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#dnavi">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div id="dnavi" class="navbar-collapse collapse  pull-right">
+                    <span>{{username}}</span>
+                    <span>{{today | date: "MM/dd/y"}}</span>
+                    <button ng-click="logout()" class="pull-right btn btn-default">Log out</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="navi col-xs-2 dashboard__navi">
-        <ul >
-            <li ><a href="#/root/overview"> <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Overview</a></li>
-            <li ><a href="#/root/work"> <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Work</a></li>
-            <li ><a href="#/root/producer"> <span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Producer</a></li>
-            <li ><a href="#/root/contact"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Contact</a></li>
+    <div  class="dashboard__navi col-xs-12 col-sm-2">
+        <ul>
+            <li>
+                <a href="#/root/overview"> <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Overview</a>
+            </li>
+            <li>
+                <a href="#/root/work"> <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>Work</a>
+            </li>
+            <li>
+                <a href="#/root/producer"> <span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Producer</a>
+            </li>
+            <li>
+                <a href="#/root/contact"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Contact</a>
+            </li>
         </ul>
     </div>
-    <div ui-view></div>
+    <div ui-view class="col-xs-12 col-sm-10"></div>
 </div>

@@ -14,7 +14,7 @@ function RootController($scope, $state, LoginService, SessionService, getUserSer
     $scope.today = new Date();
     
     var getUserCall = getUserService.getResource().get({'user': SessionService.get()}, function(response) {
-        // console.log(response);
+        console.log(response);
         $scope.username = response.name; 
     });
     // console.log($scope.username);
