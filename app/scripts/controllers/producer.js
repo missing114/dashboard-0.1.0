@@ -10,7 +10,6 @@
 
 	// controller for works
 	function ProducerController($scope, getWorkService) {
-	    
 	    // make service call to get data from server
 	    getWorkService.getworks().then(function(response) { 
 	        $scope.worksData = response.data.works;
@@ -20,9 +19,14 @@
 		    		'likes': $scope.worksData[i].like.split(" ")[0]
 		    	}
 		    }
-		    console.log($scope.worksData);
+		    // console.log($scope.worksData);
 	    }, function(response) {
 	        console.log("getWork error!");
 	    });
+
+	    $scope.updateWorkInfo = function() {
+	    	
+	    };
+
 	};
 })();
